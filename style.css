@@ -1,0 +1,24 @@
+:root{color-scheme:light;--ink:#212830;--muted:#667282;--link:#185c99;--line:#e2e7ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.65 Arial,Helvetica,sans-serif}
+.site-wrap{max-width:1080px;margin:0 auto;padding:46px 32px 24px}
+h1,h2,h3{line-height:1.3;letter-spacing:-.02em}
+h1{font-size:30px;margin:0 0 6px;font-weight:700}
+.masthead p{margin:0;color:var(--muted);font-size:14px}
+.masthead{border-bottom:1px solid var(--line);padding-bottom:25px;margin-bottom:31px}
+h2{font-size:24px;margin:0 0 12px}
+.intro{max-width:820px;margin:0 0 30px;color:#4d5967}
+.project{display:grid;grid-template-columns:295px minmax(0,1fr);align-items:start;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.project-media{margin:0}.project-media img{display:block;width:100%;height:auto;aspect-ratio:320/205;object-fit:cover;border:1px solid #e2e8ee;border-radius:3px}
+.project-details h3{font-size:19px;margin:0 0 6px;font-weight:700}
+.project-meta{font-size:13px;color:var(--muted);margin:0 0 12px}
+.project-details p:not(.project-meta):not(.project-links){margin:0 0 12px}
+.project-links{margin:14px 0 0;font-size:14px;font-weight:600;display:flex;flex-wrap:wrap;gap:18px}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.external{font-size:12px}
+footer{border-top:1px solid var(--line);padding-top:16px;margin-top:28px;color:var(--muted);font-size:12px}
+.results-page h2{margin-top:35px}.results-page h3{font-size:18px;margin-bottom:5px}.results-page p{max-width:760px}.back-link{font-size:14px}.summary-table{border-collapse:collapse;width:100%;max-width:750px;font-size:14px;margin:16px 0 25px}.summary-table th,.summary-table td{padding:11px 13px;border:1px solid var(--line);text-align:left;vertical-align:top}.summary-table th{background:#f5f7f9}.note{color:var(--muted);font-size:13px}
+@media(max-width:680px){.site-wrap{padding:26px 20px 20px}h1{font-size:26px}.project{grid-template-columns:1fr;gap:15px}.project-media{max-width:420px}.intro{margin-bottom:24px}}
+
+.project-status { display: inline-block; font-size: 0.82rem; font-weight: 650; color: #305789; background: #eaf2ff; border-radius: 3px; padding: 3px 8px; margin: 5px 0 8px; }
