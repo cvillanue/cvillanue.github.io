@@ -1,51 +1,158 @@
 
-<article class="project">
-  <figure class="project-media">
-    <!-- Project EMPATH simulation -->
-    <video
-      width="320"
-      height="205"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="assets/empath-simulation.png"
-    >
-      <source
-        src="assets/empath-demo.mp4"
-        type="video/mp4"
-      >
-      Your browser does not support video.
-    </video>
-  </figure>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <div class="project-details">
-    <h3>
-      Project EMPATH: Empathetic Modeling and Predictive Assistance for Teaming with Humans
-    </h3>
+  <meta
+    name="description"
+    content="Selected virtual robotics projects in human-robot interaction, robot simulation, and autonomous systems."
+  >
 
-    <p class="project-status">In Progress</p>
+  <title>Virtual Robotics Research</title>
 
-    <p class="project-meta">
-      CoppeliaSim · Python · Bayesian Inference
-    </p>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <p>
-      A virtual human–robot collaboration environment
-      in which a Sawyer robot observes a person performing
-      block-selection and assembly tasks. The system
-      estimates whether the person is likely to recover
-      independently or need assistance, then evaluates
-      whether to wait or intervene.
-    </p>
+<body>
+  <main class="site-wrap">
 
-    <p class="project-links">
-      <a href="results/empath.html">
-        Preliminary Results
-      </a>
-    </p>
-  </div>
-</article>
+    <!-- Website Header -->
+    <header class="masthead">
+      <h1>Virtual Robotics Research</h1>
+
+      <p>
+        Human–Robot Interaction · Autonomous Systems · Simulation
+      </p>
+    </header>
+
+    <!-- Research Projects -->
+    <section aria-labelledby="research-heading">
+
+      <h2 id="research-heading">Research Projects</h2>
+
+      <p class="intro">
+        Selected experiments and software projects exploring
+        how robots perceive, reason, and interact in simulated
+        environments.
+      </p>
+
+      <!-- ======================================== -->
+      <!-- Project EMPATH                           -->
+      <!-- ======================================== -->
+
+      <article class="project">
+
+        <figure class="project-media">
+          <video
+            width="320"
+            height="205"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/empath-simulation.png"
+            style="width: 100%; height: auto; border-radius: 4px;"
+            aria-label="Project EMPATH simulation featuring a human avatar, conveyor, assembly table, and Sawyer robot"
+          >
+            <source
+              src="assets/empath-demo.mp4"
+              type="video/mp4"
+            >
+            Your browser does not support HTML5 video.
+          </video>
+        </figure>
+
+        <div class="project-details">
+
+          <h3>Project EMPATH</h3>
+
+          <p class="project-subtitle">
+            Empathetic Modeling and Predictive Assistance
+            for Teaming with Humans
+          </p>
+
+          <p class="project-status">In Progress</p>
+
+          <p class="project-meta">
+            CoppeliaSim · Python · Bayesian Inference
+          </p>
+
+          <p>
+            A virtual human–robot collaboration environment in
+            which a Sawyer robot observes a person performing
+            block-selection and assembly tasks. The system
+            estimates whether the person is likely to recover
+            independently or need assistance, then evaluates
+            whether to wait or intervene.
+          </p>
+
+          <p class="project-links">
+            <a href="results/empath.html">
+              Preliminary Results
+            </a>
+          </p>
+
+        </div>
+      </article>
+
+      <!-- ======================================== -->
+      <!-- cubeBot                                  -->
+      <!-- ======================================== -->
+
+      <article class="project">
+
+        <figure class="project-media">
+          <img
+            src="https://github.com/user-attachments/assets/60069ae2-3253-436c-aa57-dbe5bb9059ae"
+            alt="cubeBot ROS 2 robotics simulation"
+            width="320"
+            height="205"
+            loading="lazy"
+          >
+        </figure>
+
+        <div class="project-details">
+
+          <h3>cubeBot: ROS 2 Mobile Robot Simulation</h3>
+
+          <p class="project-meta">
+            ROS 2 · Python · Gazebo · LiDAR
+          </p>
+
+          <p>
+            A simulated differential-drive mobile robot
+            integrating velocity commands, laser scans,
+            and odometry. The project provides a foundation
+            for experimenting with perception, robot motion,
+            and autonomous navigation.
+          </p>
+
+          <p class="project-links">
+            <a
+              href="https://github.com/cvillanue/cubeBot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Code
+              <span class="external" aria-hidden="true">↗</span>
+            </a>
+          </p>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>Virtual Robotics Research</span>
+    </footer>
+
+  </main>
+</body>
+</html>
 
   
