@@ -1,6 +1,6 @@
 # Virtual Robotics Research — GitHub Pages starter
 
-A minimal academic-style research showcase inspired by the structure of Northeastern's Helping Hands Lab research page, with original text, styling, and placeholder illustrations.
+A minimal academic-style research showcase
 
 ## Preview locally
 
