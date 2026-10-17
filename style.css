@@ -22,3 +22,10 @@ footer{border-top:1px solid var(--line);padding-top:16px;margin-top:28px;color:v
 @media(max-width:680px){.site-wrap{padding:26px 20px 20px}h1{font-size:26px}.project{grid-template-columns:1fr;gap:15px}.project-media{max-width:420px}.intro{margin-bottom:24px}}
 
 .project-status { display: inline-block; font-size: 0.82rem; font-weight: 650; color: #305789; background: #eaf2ff; border-radius: 3px; padding: 3px 8px; margin: 5px 0 8px; }
+
+.dev-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #273447;
+  margin: 8px 0;
+}
