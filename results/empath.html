@@ -190,6 +190,15 @@
       padding: .6rem .35rem;
     }
   }
+
+  .empath-results .empath-video-grid video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #17212b;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
 </style>
 </head>
 
@@ -461,7 +470,7 @@
 <!-- SECTION 4 -->
 
 <section id="mission-095a">
-<h2>4. Human response to assistance</h2>
+<h2>4. Human Response to Robotic Assistance: Control vs. Intervention</h2>
 
 <p class="date-line">October 27, 2026 · Paired control and intervention simulations</p>
 
@@ -527,7 +536,7 @@
 
 <figure>
   <img
-    src="../assets/empath-095a-comparison.svg"
+    src="../assets/empath-095a-task-outcomes.svg"
     alt="Comparison of four scripted EMPATH conditions: difficulty control incomplete, difficulty assistance complete at 35.35 seconds, self-recovery control complete at 39 seconds, and self-recovery assistance complete at 35.35 seconds"
     loading="lazy"
   >
@@ -539,6 +548,60 @@
   </figcaption>
 </figure>
 
+<h3>Self-recovery: control and assistance video demonstrations</h3>
+<p>
+  The videos below are intended to show the same scripted initial
+  incorrect approaches under two conditions. In the control run,
+  Sawyer observes while the human recovers independently. In the
+  intervention run, Sawyer offers assistance and the programmed
+  human accepts guidance. Both conditions complete the RGB pattern.
+</p>
+<div class="figure-grid empath-video-grid">
+  <figure>
+    <video controls playsinline preload="metadata"
+      aria-label="Self-recovery control simulation recording">
+      <source src="../assets/empath-self-recovery-control.mp4" type="video/mp4">
+      Your browser does not support embedded MP4 videos.
+      <a href="../assets/empath-self-recovery-control.mp4">Open the control video</a>.
+    </video>
+    <figcaption>
+      <strong>Video 1. Self-recovery, control.</strong>
+      Two incorrect approaches, no assistance offer, then independent
+      recovery. Scripted RGB completion: <strong>39.00 s</strong>.
+    </figcaption>
+  </figure>
+  <figure>
+    <video controls playsinline preload="metadata"
+      aria-label="Self-recovery accepted assistance simulation recording">
+      <source src="../assets/empath-self-recovery-assistance.mp4" type="video/mp4">
+      Your browser does not support embedded MP4 videos.
+      <a href="../assets/empath-self-recovery-assistance.mp4">Open the assistance video</a>.
+    </video>
+    <figcaption>
+      <strong>Video 2. Self-recovery, assistance accepted.</strong>
+      Sawyer offers assistance at <strong>8.15 s</strong>; the programmed
+      human accepts at <strong>10.25 s</strong>. Scripted completion:
+      <strong>35.35 s</strong>.
+    </figcaption>
+  </figure>
+</div>
+<p class="media-guide">
+  Videos are demonstration recordings of deterministic simulation
+  scenarios. The MP4 files must be uploaded separately to the
+  <code>assets/</code> directory for playback.
+</p>
+
+<h3>EMPATH figures from recorded CSVs</h3>
+<figure>
+  <img src="../assets/empath-095a-belief-trajectories.svg"
+       alt="Bayesian probability of independent recovery across four control and assistance simulation runs" loading="lazy">
+  <figcaption><strong>Figure 6.</strong> Time-resolved Bayesian belief trajectories from all four intervention-response runs. Each staircase terminates at its recorded endpoint; the difficulty control trial is not extrapolated beyond 13.75 s. Dashed lines denote control conditions.</figcaption>
+</figure>
+<figure>
+  <img src="../assets/empath-095a-intervention-utilities.svg"
+       alt="Expected utilities for assisting and waiting following the first error, second error, and first completed block" loading="lazy">
+  <figcaption><strong>Figure 7.</strong> Utility comparison in the self-recovery assistance run: after the second incorrect approach, U(assist) = 0.626 exceeds U(wait) = −0.012. The utilities reflect explicitly chosen policy weights, not human-participant preferences.</figcaption>
+</figure>
 <h3>Intervention timing and observed response</h3>
 <p>
   In both intervention runs, Sawyer recommended and offered assistance
@@ -590,7 +653,7 @@
     actual assistance delivered, or improved outcomes for
     human participants. Likelihoods and action utilities
     are currently hand-specified; the human behavior and
-    courier motion are scripted. In Mission 09.5A, the
+    courier motion are scripted. In the intervention-response experiments, the
     visual offer changes behavior through an explicitly
     programmed acceptance rule; that is a simulation
     mechanism, not an observed human response.
