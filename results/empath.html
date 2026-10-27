@@ -1,0 +1,632 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dated preliminary simulation results for Project EMPATH: online Bayesian human-state inference and uncertainty-aware robot assistance in CoppeliaSim.">
+<title>Project EMPATH | Preliminary Results</title>
+<link rel="stylesheet" href="../style.css">
+
+<style>
+  .empath-results {
+    --ink: #0A0A0A;
+    --muted: #607184;
+    --line: #d8e2ea;
+    --pale: #FCFFED;
+    color: var(--ink);
+  }
+
+  .empath-results h1 {
+    letter-spacing: -.035em;
+  }
+
+  .empath-results h2 {
+    margin-top: 2.25rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: .45rem;
+  }
+
+  .empath-results h3 {
+    margin: 1.2rem 0 .45rem;
+  }
+
+  .empath-results p {
+    line-height: 1.72;
+  }
+
+  .empath-results .eyebrow {
+    font-size: .8rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    font-weight: 750;
+    color: #0A0A0A;
+  }
+
+  .empath-results .lead {
+    max-width: 850px;
+    font-size: 1.09rem;
+    color: #0A0A0A;
+  }
+
+  .empath-results .meta {
+    font-size: .92rem;
+    color: var(--muted);
+  }
+
+  .empath-results .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: .8rem;
+    margin: 1.4rem 0;
+  }
+
+  .empath-results .metric {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--pale);
+    padding: 1rem;
+  }
+
+  .empath-results .metric strong {
+    display: block;
+    font-size: 1.75rem;
+    line-height: 1.15;
+    color: #B4B6B8;
+  }
+
+  .empath-results .metric span {
+    font-size: .81rem;
+    color: var(--muted);
+  }
+
+  .empath-results figure {
+    margin: 1.35rem 0 1.65rem;
+    padding: 0;
+  }
+
+  .empath-results figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: white;
+  }
+
+  .empath-results figcaption {
+    font-size: .88rem;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: .55rem;
+  }
+
+  .empath-results .figure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.15rem;
+  }
+
+  .empath-results .figure-grid figure {
+    margin: 0;
+  }
+
+  .empath-results .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .93rem;
+  }
+
+  .empath-results .summary-table th,
+  .empath-results .summary-table td {
+    padding: .78rem .7rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .empath-results .summary-table thead {
+    background: var(--pale);
+  }
+
+  .empath-results .table-wrap {
+    overflow-x: auto;
+  }
+
+  .empath-results .method-note {
+    border-left: 3px solid #5682aa;
+    padding: .2rem 1rem;
+    background: var(--pale);
+    margin: 1.5rem 0;
+  }
+
+  .empath-results .date-line {
+    font-weight: 650;
+    color: #426586;
+  }
+
+  .empath-results .screen-flow {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin: 1.1rem 0;
+  }
+
+  .empath-results .screen-flow span {
+    display: inline-block;
+    padding: .55rem 1rem;
+    border-radius: 7px;
+    color: #0A0A0A;
+    font-weight: 750;
+    font-size: .86rem;
+  }
+
+  .empath-results .screen-flow .cyan {
+    background: #36d0d8;
+  }
+
+  .empath-results .screen-flow .green {
+    background: #49d874;
+  }
+
+  .empath-results .screen-flow b {
+    font-size: .85rem;
+    color: var(--muted);
+  }
+
+  .empath-results .media-guide {
+    font-size: .87rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .empath-results .summary-table {
+      font-size: .82rem;
+    }
+
+    .empath-results .summary-table th,
+    .empath-results .summary-table td {
+      padding: .6rem .35rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+<main class="site-wrap results-page empath-results">
+
+<p>
+  <a class="back-link" href="../index.html">
+    ← Back to research projects
+  </a>
+</p>
+
+<header class="masthead">
+  <div class="eyebrow">
+    Simulation research · Preliminary findings
+  </div>
+
+  <h1>Project EMPATH</h1>
+
+  <p class="lead">
+    Uncertainty-aware assistance in a simulated human–robot
+    assembly workcell. A Sawyer robot observes task behavior,
+    updates a Bayesian belief about independent recovery,
+    and signals when intervention has higher expected utility
+    than waiting.
+  </p>
+
+  <p class="meta">
+    <strong>Results updated:</strong> October 27, 2026 ·
+    CoppeliaSim / Python / ZeroMQ
+  </p>
+</header>
+
+<div class="metric-grid" aria-label="Key experiment results">
+
+  <div class="metric">
+    <strong>3</strong>
+    <span>Scripted human-behavior conditions</span>
+  </div>
+
+  <div class="metric">
+    <strong>72</strong>
+    <span>Event records across three runs</span>
+  </div>
+
+  <div class="metric">
+    <strong>8.15 s</strong>
+    <span>First assistance recommendation in self-recovery</span>
+  </div>
+
+  <div class="metric">
+    <strong>3/3</strong>
+    <span>RGB slots completed in successful trials</span>
+  </div>
+
+</div>
+
+
+<!-- SECTION 1 -->
+
+<section>
+<h2>1. Simulation workcell and experimental setup</h2>
+
+<p>
+  The workcell combines a scripted human with an articulated
+  arm, a stepwise conveyor presenting color-coded blocks,
+  three ordered RGB assembly slots, an observing Sawyer
+  manipulator, and a mobile courier. Human selections
+  are animated; the courier transports a completed order
+  after successful assembly. Sawyer's current intervention
+  is <em>visual signaling only</em>, not physical manipulation
+  of the task.
+</p>
+
+<div class="figure-grid">
+
+  <figure>
+    <img
+      src="../assets/workcell-overview.webp"
+      alt="CoppeliaSim workcell with human avatar, RGB blocks, conveyor, Sawyer robot and mobile courier"
+      loading="lazy"
+    >
+    <figcaption>
+      <strong>Figure 1.</strong>
+      CoppeliaSim assembly environment, including the human
+      avatar, Sawyer, RGB staging area, conveyor, and courier.
+    </figcaption>
+  </figure>
+
+
+</div>
+</section>
+
+
+<!-- SECTION 2 -->
+
+<section>
+<h2>2. Human behavior conditions</h2>
+
+<p>
+  Three scripted conditions test whether the controller
+  responds to observable human behavior rather than
+  knowing the scenario outcome beforehand. An incorrect
+  approach means the hand reached toward a nonmatching
+  block; it does not mean the block was grasped or placed.
+</p>
+
+<div class="table-wrap">
+<table class="summary-table">
+
+<thead>
+<tr>
+  <th>Condition</th>
+  <th>Observable behavior</th>
+  <th>Progress</th>
+  <th>Final P(recovery)</th>
+  <th>Result</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+  <td><strong>Deliberation</strong></td>
+  <td>
+    Waits, ignores initial blue block;
+    assembles red, green, blue
+  </td>
+  <td>3/3</td>
+  <td>0.9871</td>
+  <td>Task complete (29.60 s)</td>
+</tr>
+
+<tr>
+  <td><strong>Difficulty</strong></td>
+  <td>
+    Two incorrect approaches and hesitation;
+    no further progress
+  </td>
+  <td>0/3</td>
+  <td>0.3976</td>
+  <td>Task incomplete</td>
+</tr>
+
+<tr>
+  <td><strong>Self-recovery</strong></td>
+  <td>
+    Same initial two incorrect approaches,
+    then assembles RGB
+  </td>
+  <td>3/3</td>
+  <td>0.9806</td>
+  <td>Task complete (39.00 s)</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+
+<p class="media-guide">
+  Event log sizes: deliberation 26 rows; difficulty 14 rows;
+  self-recovery 32 rows. The logs are synthetic
+  software-generated trajectories, not recruited participant data.
+</p>
+
+<figure>
+  <img
+    src="../assets/bayesian-trajectories.svg"
+    alt="Step chart of recovery belief: deliberation rises from 0.5 to 0.987; difficulty falls to 0.398; self-recovery first falls to 0.398 then rises to 0.981"
+    loading="lazy"
+  >
+  <figcaption>
+    <strong>Figure 2.</strong>
+    Posterior belief trajectories during offline replay
+    of the three scripts. Beliefs update on incorrect
+    approaches and assembly progress; horizontal segments
+    indicate no evidential update. The difficulty trial
+    terminates at 13.75 s. Probabilities use illustrative
+    manually specified likelihoods.
+  </figcaption>
+</figure>
+
+<p>
+  Critically, difficulty and self-recovery have identical
+  initial observable histories and posterior beliefs through
+  the second incorrect approach (8.15 s). The self-recovery
+  estimate later increases only after actual successful
+  assembly events at 23.05, 30.85, and 39.00 seconds.
+</p>
+
+</section>
+
+
+<!-- SECTION 3 -->
+
+<section>
+<h2>3. Live uncertainty-aware assistance</h2>
+
+<p>
+  The replay-tested Bayesian monitor was connected to
+  the live simulation clock. After each relevant observation,
+  Sawyer compares the expected utility of
+  <strong>OFFER_ASSISTANCE</strong> versus
+  <strong>WAIT</strong>.
+</p>
+
+<p>
+  In the self-recovery run, the first incorrect approach
+  at 4.00 s prompted WAIT, while the second at 8.15 s
+  prompted OFFER_ASSISTANCE. The decision returned
+  to WAIT when the first correct assembly progress
+  was observed at 23.05 s.
+</p>
+
+<div class="screen-flow" aria-label="Screen color sequence">
+  <span class="cyan">WAIT · cyan</span>
+  <b>→</b>
+  <span class="green">OFFER HELP · green</span>
+  <b>→</b>
+  <span class="cyan">WAIT · cyan</span>
+</div>
+
+<div class="figure-grid">
+
+  <figure>
+    <img
+      src="../assets/sawyer-green-screen.webp"
+      alt="Sawyer robot in CoppeliaSim with a green decision-display panel attached to its head"
+      loading="lazy"
+    >
+    <figcaption>
+      <strong>Figure 3.</strong>
+      Green visual decision panel mounted on Sawyer's
+      head assembly, photographed in the simulator
+      on October 17, 2026. The panel follows Sawyer's head
+      and is connected to the live policy.
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img
+      src="../assets/decision-utilities.svg"
+      alt="Bar chart of calculated utilities for assisting and waiting after first error, second error, and first assembly progress"
+      loading="lazy"
+    >
+    <figcaption>
+      <strong>Figure 4.</strong>
+      Example expected utilities during the live
+      self-recovery experiment. At 8.15 s,
+      U(assist) = 0.626 exceeds U(wait) = −0.012.
+      Values are derived from chosen reward and cost weights,
+      not fitted user preferences.
+    </figcaption>
+  </figure>
+
+</div>
+
+<p>
+  The simulation finished successfully: RGB pattern complete
+  at <strong>39.00 s</strong>, order delivered at
+  <strong>53.20 s</strong>, and courier returned at
+  <strong>65.10 s</strong>. Three CSV files preserve the
+  event history, online Bayesian states, and decisions
+  for this run.
+</p>
+
+</section>
+
+
+<!-- SECTION 4 -->
+
+<section id="mission-095a">
+<h2>4. Mission 09.5A: Human response to assistance</h2>
+
+<p class="date-line">October 27, 2026 · Paired control and intervention simulations</p>
+
+<p>
+  To extend Sawyer's visual assistance signal into a testable interaction,
+  we introduced a deterministic human-response rule. In the
+  <strong>control</strong> condition, Sawyer calculates assistance recommendations
+  but does not display an offer. In the <strong>intervention</strong> condition,
+  the recommended offer is displayed and the scripted human can accept
+  guidance and resume the assembly task.
+</p>
+
+<p>
+  We ran each condition with two different underlying behaviors:
+  <strong>difficulty</strong>, in which the human cannot progress without
+  modeled assistance, and <strong>self-recovery</strong>, in which the human
+  eventually completes the pattern without intervention.
+</p>
+
+<div class="table-wrap">
+<table class="summary-table">
+<thead>
+<tr>
+  <th>Human behavior</th>
+  <th>Condition</th>
+  <th>Offers / accepted</th>
+  <th>Completion</th>
+  <th>Assembly time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Difficulty</td>
+  <td>Control</td>
+  <td>0 / 0</td>
+  <td>Incomplete (0/3)</td>
+  <td>Not reached; trial stopped at 13.75 s</td>
+</tr>
+<tr>
+  <td>Difficulty</td>
+  <td>Intervention, accept</td>
+  <td>1 / 1</td>
+  <td>Complete (3/3)</td>
+  <td>35.35 s</td>
+</tr>
+<tr>
+  <td>Self-recovery</td>
+  <td>Control</td>
+  <td>0 / 0</td>
+  <td>Complete (3/3)</td>
+  <td>39.00 s</td>
+</tr>
+<tr>
+  <td>Self-recovery</td>
+  <td>Intervention, accept</td>
+  <td>1 / 1</td>
+  <td>Complete (3/3)</td>
+  <td>35.35 s</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<figure>
+  <img
+    src="../assets/empath-095a-comparison.svg"
+    alt="Comparison of four scripted EMPATH conditions: difficulty control incomplete, difficulty assistance complete at 35.35 seconds, self-recovery control complete at 39 seconds, and self-recovery assistance complete at 35.35 seconds"
+    loading="lazy"
+  >
+  <figcaption>
+    <strong>Figure 5.</strong> Completion outcomes and times across
+    four deterministic simulation runs (October 27, 2026).
+    The unsuccessful difficulty control has no completion time;
+    it is not assigned a zero-second completion time.
+  </figcaption>
+</figure>
+
+<h3>Intervention timing and observed response</h3>
+<p>
+  In both intervention runs, Sawyer recommended and offered assistance
+  at <strong>8.15 s</strong>, after two incorrect reaches. The scripted
+  human saw the offer at <strong>9.75 s</strong>, accepted it at
+  <strong>10.25 s</strong>, and resumed task activity. Once the first
+  correct block was assembled at <strong>19.55 s</strong>, the posterior
+  probability of independent recovery rose to approximately
+  <strong>0.737</strong>, and Sawyer's recommendation returned to WAIT.
+</p>
+
+<p>
+  The paired runs retained matching observable histories and Bayesian
+  beliefs through the second incorrect approach:
+  <strong>P(recovery) = 0.397647</strong> at 8.15 s.
+  The control condition suppressed the offer even when the
+  intervention policy recommended assistance.
+</p>
+
+<p>
+  For self-recovery, accepted guidance reduced the scripted completion
+  time from <strong>39.00 s to 35.35 s</strong>, a difference of
+  <strong>3.65 s (approximately 9.4%)</strong>. For difficulty, the
+  control trial ended incomplete while the accepted-assistance trial
+  completed. These differences follow from the programmed response
+  model and should not be interpreted as effects measured on human participants.
+</p>
+</section>
+
+<!-- SECTION 5 -->
+
+<section>
+<h2>5. Interpretation and limitations</h2>
+
+<div class="method-note">
+
+  <p>
+    <strong>What this establishes:</strong>
+    a synchronized, functioning CoppeliaSim prototype
+    linking observable scripted behavior -> Bayesian inference
+    -> decision utility -> a visible Sawyer screen-color response.
+    It also confirms that identical observable prefixes
+    receive identical beliefs.
+  </p>
+
+  <p>
+    <strong>What it does not establish:</strong>
+    emotion recognition, statistically calibrated prediction,
+    actual assistance delivered, or improved outcomes for
+    human participants. Likelihoods and action utilities
+    are currently hand-specified; the human behavior and
+    courier motion are scripted. In Mission 09.5A, the
+    visual offer changes behavior through an explicitly
+    programmed acceptance rule; that is a simulation
+    mechanism, not an observed human response.
+  </p>
+
+</div>
+</section>
+
+
+<!-- SECTION 6 -->
+
+<section>
+<h2>6. What's next?</h2>
+
+<p>
+  Expand the paired trials with declined offers, interruption
+  delays, varied response probabilities, and repeated seeded
+  simulations. Next, quantify unnecessary interruptions and
+  delayed assistance, validate inference calibration on held-out
+  trajectories, and test robustness across task configurations.
+</p>
+
+<p class="media-guide">
+  Media can be extended with a dedicated GIF from the
+  live October 17 screen-color run. The current animation
+  depicts an earlier workcell stage.
+</p>
+
+</section>
+
+<footer>
+  <span>
+    Virtual Robotics Research · Updated October 27, 2026
+  </span>
+</footer>
+
+</main>
+</body>
+</html>
